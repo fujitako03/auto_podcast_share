@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>flask demo app</title>
+</head>
+<body>
+    <!-- 登録されているポッドキャスト一覧 -->
+    <table border="1">
+        <tr>
+            <th>podcast_id</th>
+            <th>name</th>
+            <th>url</th>
+        </tr>
+        {% for p in podcasts %}
+        <tr>
+            <td>{{ p.podcast_id }}</td>
+            <td>{{ p.podcast_name }}</td>
+            <td>{{ p.podcast_url }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table border="1">
+        <tr>
+            <th>broadcast_id</th>
+            <th>podcast_id</th>
+            <th>service</th>
+            <th>url</th>
+            <th>created</th>
+            <th>update</th>
+        </tr>
+        {% for b in broadcasts %}
+        <tr>
+            <td>{{ b.broadcast_id }}</td>
+            <td>{{ b.podcast_id }}</td>
+            <td>{{ b.broadcast_service }}</td>
+            <td>{{ b.broadcast_url }}</td>
+            <td>{{ b.created_at }}</td>
+            <td>{{ b.update_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
