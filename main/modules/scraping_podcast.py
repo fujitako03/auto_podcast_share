@@ -15,27 +15,36 @@ def get_episode_url_all(broadcast_urls, episode_num):
         dict: 指定した配信回の各ポッドキャストURL
     """
 
-    epidode_urls = {}
+    epidode_urls = []
     # Apple
     service = "Apple"
     if broadcast_urls.get(service):
-        epidode_urls[service] = get_episode_url_apple(broadcast_urls.get(service), episode_num)
+        epidode_urls.append({
+            "service_name": service,
+            "episode_url": get_episode_url_apple(broadcast_urls.get(service), episode_num)
+        })
     else:
-        epidode_urls[service] = ""
+        pass
 
     # Spotify
     service = "Spotify"
     if broadcast_urls.get(service):
-        epidode_urls[service] = get_episode_url_spotify(broadcast_urls.get(service), episode_num)
+        epidode_urls.append({
+            "service_name": service,
+            "episode_url": get_episode_url_spotify(broadcast_urls.get(service), episode_num)
+        })
     else:
-        epidode_urls[service] = ""
+        pass
 
     # stand.fm
     service = "stand.fm"
     if broadcast_urls.get(service):
-        epidode_urls[service] = get_episode_url_standfm(broadcast_urls.get(service), episode_num)
+        epidode_urls.append({
+            "service_name": service,
+            "episode_url": get_episode_url_standfm(broadcast_urls.get(service), episode_num)
+        })
     else:
-        epidode_urls[service] = ""
+        pass
 
     return epidode_urls
 
@@ -49,6 +58,7 @@ def get_episode_url_spotify(broadcast_url, episode_num):
     Returns:
         string: 該当エピソードのurl
     """
+    print("serch start "+episode_num+" in "+broadcast_url)
     # htmlをパース
     html = request.urlopen(broadcast_url)
     soup = BeautifulSoup(html,"html5lib")
@@ -79,6 +89,7 @@ def get_episode_url_apple(broadcast_url, episode_num):
     Returns:
         string: 該当エピソードのurl
     """
+    print("serch start "+episode_num+" in "+broadcast_url)
     # htmlをパース
     html = request.urlopen(broadcast_url)
     soup = BeautifulSoup(html,"html5lib")
@@ -111,6 +122,7 @@ def get_episode_url_standfm(broadcast_url, episode_num):
     Returns:
         string: 該当エピソードのurl
     """
+    print("serch start "+episode_num+" in "+broadcast_url)
     # htmlをパース
     html = request.urlopen(broadcast_url)
     soup = BeautifulSoup(html,"html5lib")

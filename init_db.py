@@ -23,8 +23,8 @@ db.session.commit()
 
 # データを挿入
 broadcast = Broadcast(
-    broadcast_url="https://podcasts.apple.com/jp/podcast/%E3%82%B9%E3%82%AD%E3%83%9E%E3%82%B1%E3%82%A4%E3%82%AB%E3%82%AF/id1549488123",
     broadcast_service="Apple",
+    broadcast_url="https://podcasts.apple.com/jp/podcast/%E3%82%B9%E3%82%AD%E3%83%9E%E3%82%B1%E3%82%A4%E3%82%AB%E3%82%AF/id1549488123",
     podcast_id="1",
     )
 db.session.add(broadcast)
@@ -32,8 +32,17 @@ db.session.commit()
 
 # データを挿入
 broadcast = Broadcast(
-    broadcast_url="https://open.spotify.com/show/4UAXC9FpPJMrOTQOdQUEDC",
     broadcast_service="Spotify",
+    broadcast_url="https://open.spotify.com/show/4UAXC9FpPJMrOTQOdQUEDC",
+    podcast_id="1",
+    )
+db.session.add(broadcast)
+db.session.commit()
+
+# データを挿入
+broadcast = Broadcast(
+    broadcast_service="stand.fm",
+    broadcast_url="https://stand.fm/channels/60031bf7fc3475e2c8f7e457",
     podcast_id="1",
     )
 db.session.add(broadcast)

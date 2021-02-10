@@ -4,6 +4,7 @@
 </head>
 <body>
     <!-- 登録されているポッドキャスト一覧 -->
+    <t2>登録podcast</t2>
     <table border="1">
         <tr>
             <th>podcast_id</th>
@@ -19,6 +20,7 @@
         {% endfor %}
     </table>
 
+    <t2>登録サービス一覧</t2>
     <table border="1">
         <tr>
             <th>broadcast_id</th>
@@ -40,5 +42,17 @@
         {% endfor %}
     </table>
 
+    <h2>エピソード一覧を取得</h2>
+    <!-- 登録フォーム -->
+    <form action="{{ url_for('get_episode_url') }}" method=post>
+        #<input type="text" name="episode_num">
+        <input type="submit">
+    </form>
+    {{ episode_num }}<br>
+
+    {% for e in episode_urls %}
+        {{ e.service_name }}<br>
+        {{ e.episode_url }}<br><br>
+    {% endfor %}
 </body>
 </html>
