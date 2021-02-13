@@ -48,6 +48,15 @@ broadcast = Broadcast(
 db.session.add(broadcast)
 db.session.commit()
 
+# データを挿入
+broadcast = Broadcast(
+    broadcast_service="YouTube",
+    broadcast_url="UCwzrfuQPgg-lCfbG6Qdt1Vw",
+    podcast_id="1",
+    )
+db.session.add(broadcast)
+db.session.commit()
+
 # 結果の出力
 entries = Broadcast.query.all()
 print(entries)
