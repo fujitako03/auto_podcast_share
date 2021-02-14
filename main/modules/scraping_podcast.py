@@ -5,7 +5,6 @@ from urllib import request
 import requests
 from bs4 import BeautifulSoup
 
-# infos = []
 API_KEY = os.getenv("YOUTUBE_API_KEY")
 print(API_KEY)
 
