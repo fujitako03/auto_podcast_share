@@ -2,7 +2,7 @@
 from flask import redirect, render_template, request, url_for
 
 from main import app, db
-from main.models import Broadcast, Podcast
+from main.models.models import Broadcast, Podcast
 from main.modules.scraping_podcast import get_episode_url_all
 
 
