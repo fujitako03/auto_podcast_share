@@ -1,18 +1,18 @@
 import os
 
-import main.models
 from main import db
-from main.models import Broadcast, Podcast
+from main.models.models import Broadcast, Podcast, init
 
 
-def main():
+def init_db():
+
     # dbの削除
     path_db = "./main/podcast.db"
     if os.path.exists(path_db):
         os.remove(path_db)
 
     # db作成
-    main.models.init()
+    init()
 
     # データを挿入
     podcast = Podcast(
@@ -64,4 +64,4 @@ def main():
     print(entries)
 
 if __name__=='__main__':
-    main()
+    init_db()

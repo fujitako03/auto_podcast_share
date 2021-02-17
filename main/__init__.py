@@ -7,6 +7,9 @@ app.config.from_object('main.config')
 
 # dbを設定
 db = SQLAlchemy(app) 
-import init_db
+from main.models.init_db import init_db
+
+init_db()
+
 
 import main.views
