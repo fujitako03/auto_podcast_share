@@ -1,17 +1,16 @@
 import datetime
 
 from flask_sqlalchemy import SQLAlchemy
-
 from main import db
 
 
 class Podcast(db.Model):
-    podcast_id = db.Column(db.Integer, primary_key=True)
+    podcast_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     podcast_url = db.Column(db.String, primary_key=True)
     podcast_name = db.Column(db.String, primary_key=True)
 
 class Broadcast(db.Model):
-    broadcast_id = db.Column(db.Integer,primary_key=True)
+    broadcast_id = db.Column(db.Integer,primary_key=True, autoincrement=True)
     broadcast_service = db.Column(db.String, default=0)
     broadcast_url = db.Column(db.String, default=0)
     podcast_id = db.Column(db.Integer, default=0)

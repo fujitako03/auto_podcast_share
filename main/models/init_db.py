@@ -16,7 +16,6 @@ def init_db():
 
     # データを挿入
     podcast = Podcast(
-        podcast_id="1",
         podcast_url="https://anchor.fm/s/4779d744/podcast/rss",
         podcast_name="スキマケイカク",
         )
