@@ -8,6 +8,11 @@ from main.modules.scraping_podcast import get_episode_url_all
 
 @app.route('/')
 def show_podcasts():
+    """Podcast一覧ページを表示
+
+    Returns:
+        [type]: [description]
+    """
     podcasts = Podcast.query.all()
     broadcasts = Broadcast.query.all()
 
@@ -22,6 +27,11 @@ def show_podcasts():
 
 @app.route('/add-boardcast', methods=['POST'])
 def add_broadcast():
+    """配信先を追加
+
+    Returns:
+        [type]: [description]
+    """
     broadcast = Broadcast(
         podcast_id = request.form['podcast_id'],
         broadcast_url = request.form['broadcast_url'],
@@ -35,6 +45,11 @@ def add_broadcast():
 
 @app.route('/get_episode_url', methods=['POST'])
 def get_episode_url():
+    """エピソードの配信URLを追加
+
+    Returns:
+        [type]: [description]
+    """
     # フォームの値を取得
     episode_num = "#"+request.form['episode_num'][0]
     print(episode_num)
