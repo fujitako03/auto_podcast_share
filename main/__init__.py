@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -9,7 +11,9 @@ app.config.from_object('config.config')
 db = SQLAlchemy(app) 
 from main.models.init_db import init_db
 
+logging.info("start init db")
 init_db()
+logging.info("finish init db")
 
 
 import main.views

@@ -1,4 +1,5 @@
 import datetime
+import logging
 
 from flask_sqlalchemy import SQLAlchemy
 from main import db
@@ -29,4 +30,6 @@ class Broadcast(db.Model):
 
 
 def init():
+    logging.info("start create db")
     db.create_all()
+    logging.info("finish create db")

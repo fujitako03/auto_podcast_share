@@ -1,3 +1,4 @@
+import logging
 import os
 
 from main import db
@@ -14,6 +15,7 @@ def init_db():
     # db作成
     init()
 
+    logging.info("start create db")
     # データを挿入
     podcast = Podcast(
         podcast_url="https://anchor.fm/s/4779d744/podcast/rss",
